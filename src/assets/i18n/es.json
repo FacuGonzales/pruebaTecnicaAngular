@@ -12,6 +12,14 @@
       "DEAD": "Muerto",
       "UNKNOW": "Desconocido"
     }
+  },
+  "TABLE": {
+    "COLUMNS": {
+      "NAME": "Nombre",
+      "STATUS": "Estado",
+      "SPECIES": "Especie",
+      "CREATED": "Fecha de Creacion"
+    }
   }
 
 }

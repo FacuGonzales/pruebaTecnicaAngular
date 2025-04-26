@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { Character } from '../../models/character-model';
 
@@ -20,7 +20,8 @@ import { Character } from '../../models/character-model';
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
-export class TableComponent  implements OnChanges  {
+export class TableComponent  implements OnChanges {
+  private translate = inject(TranslateService);
   @Input() dataSource: Character[] = [];
   @Input() totalResults: number = 0;
 
@@ -30,6 +31,11 @@ export class TableComponent  implements OnChanges  {
   displayedColumns: string[] = ['name', 'status', 'species', 'created'];
   dataSourceTable = new MatTableDataSource<Character>([]);
   pageSize: number = 20;
+
+  constructor() {
+    this.translate.setDefaultLang('es');
+    this.translate.use('es');
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['dataSource']) {

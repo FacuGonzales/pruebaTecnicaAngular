@@ -3,27 +3,27 @@
     <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TABLE.COLUMNS.NAME' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TABLE.COLUMNS.STATUS' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
       </ng-container>
 
       <ng-container matColumnDef="species">
-        <th mat-header-cell *matHeaderCellDef>Species</th>
-        <td mat-cell *matCellDef="let row">{{ row.species }}</td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TABLE.COLUMNS.SPECIES' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.species }}</td>
       </ng-container>
 
       <ng-container matColumnDef="created">
-        <th mat-header-cell *matHeaderCellDef>Created</th>
-        <td mat-cell *matCellDef="let row">{{ row.created | date }}</td>
+        <th mat-header-cell *matHeaderCellDef>{{ 'TABLE.COLUMNS.CREATED' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.created | date }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="viewItem(row)"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;" (click)="viewItem(element)"></tr>
     </table>
 
   </section>
