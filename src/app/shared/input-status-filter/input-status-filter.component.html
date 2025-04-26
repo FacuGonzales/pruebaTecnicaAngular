@@ -1,0 +1,9 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ 'FILTERS.STATUS_LABEL' | translate }}</mat-label>
+  <mat-select [formControl]="selected">
+    <mat-option value="">{{ 'FILTERS.STATUS.ALL' | translate }}</mat-option>
+    <mat-option value="alive">{{ 'FILTERS.STATUS.ALIVE' | translate }}</mat-option>
+    <mat-option value="dead">{{ 'FILTERS.STATUS.DEAD' | translate }}</mat-option>
+    <mat-option value="unknown">{{ 'FILTERS.STATUS.UNKNOW' | translate }}</mat-option>
+  </mat-select>
+</mat-form-field>
