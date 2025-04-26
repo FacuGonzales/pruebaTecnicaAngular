@@ -1,0 +1,22 @@
+::ng-deep .mat-mdc-table .mdc-data-table__table .cdk-table {
+  border-radius: 20px !important;
+}
+::ng-deep .mat-mdc-cell, .mat-mdc-header-cell {
+  padding: 20px 0;
+  text-align: center !important;
+}
+
+::ng-deep .mat-mdc-row:hover, .mdc-data-table__row:hover, .cdk-row:hover {
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.table-container {
+  width: 40%;
+}
+
+.example-container {
+  height: 670px;
+  overflow: auto;
+}
