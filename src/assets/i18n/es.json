@@ -1,6 +1,17 @@
 {
   "HOME" : {
     "TITLE": "Rick & Morty"
+  },
+  "FILTERS" : {
+    "NAME_LABEL": "Ingresar nombre",
+    "NAME_PLACEHOLDER": "Nombre",
+    "STATUS_LABEL": "Seleccionar estado",
+    "STATUS": {
+      "ALL": "Todos",
+      "ALIVE": "Vivo",
+      "DEAD": "Muerto",
+      "UNKNOW": "Desconocido"
+    }
   }
 
 }
