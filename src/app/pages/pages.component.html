@@ -1,0 +1,27 @@
+<div>
+
+  <app-header (viewDetailCharacter)="onViewDetailCharacter($event)"></app-header>
+
+  @if(listado.length) {
+
+    <div>
+      <app-table [dataSource]="listado"
+                 [totalResults]="totalResults"
+                 (sendFilterName)="filterByName($event)"
+                 (sendFilterStatus)="filterByStatus($event)"
+                 (pageChanged)="onPageChange($event)"
+                 (detailCharacter)="onViewDetailCharacter($event)">
+      </app-table>
+    </div>
+
+    <div>
+      @if(characterSelected) {
+
+        <app-detail-character [character]="characterSelected"></app-detail-character>
+      }
+    </div>
+
+  } @else {
+    <app-error-message></app-error-message>
+  }
+</div>
