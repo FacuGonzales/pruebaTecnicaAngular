@@ -1,37 +1,58 @@
-<mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>{{ character?.name }}</mat-card-title>
-      <mat-card-subtitle>{{ character?.species }} | {{ character?.gender }} | {{ character?.status }}</mat-card-subtitle>
-      <img mat-card-xl-image src="{{ character?.image }}" >
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    @if(character?.origin?.name) {
-      Origen:  {{ character?.origin?.name }}
-      Residentes:
-      @for (item of residentsOrigin; track $index) {
-        {{item.name}},
-      }
-    } @else {
-      <p>Se desconoce el lugar de origen</p>
-    }
+@if (characterDetails$ | async; as result) {
+  <div>
+    <mat-card class="example-card" appearance="outlined">
 
-    @if(character?.location?.name) {
-      Localizacion: {{ character?.location?.name }},
-      Residentes:
-      @for (item of residentsLocation; track $index) {
-        {{item.name}},
-      }
-    } @else {
-      <p>Se desconoce el lugar de Localizacion</p>
-    }
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ result.data.character.name }}</mat-card-title>
+          <mat-card-subtitle>{{ result.data.character.species }} | {{ result.data.character.gender }} | {{ result.data.character.status }}</mat-card-subtitle>
+          <img mat-card-xl-image src="{{ result.data.character.image }}" >
+        </mat-card-title-group>
+      </mat-card-header>
 
+      <mat-card-content>
+        <p>{{ 'DETAIL.ORIGIN' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_ORIGIN' | translate) }}</p>
 
-    Episodio:
-    Nombre: {{ (episodes$ | async)?.name }}
-    Fecha de transmision: {{ (episodes$ | async)?.air_date }}
-    Código del episodio: {{ (episodes$ | async)?.episode }}
+        @if ((result.data.character.origin.residents || []).length > 0) {
+          <h3>{{ 'DETAIL.RESIDENTS' | translate }}</h3>
 
-  </mat-card-content>
-</mat-card>
+          <mat-list>
+            @for (resident of (result.data.character.origin.residents || []) | slice:0:3; track $index) {
+              <mat-list-item>
+                <img [src]="resident.image" alt="{{ resident.name }}" />
+                <p>{{ resident.name }}</p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            }
+          </mat-list>
+        }
+
+        <p>{{ 'DETAIL.LOCATION' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_LOCATION' | translate) }}</p>
+
+        @if ((result.data.character.origin.residents || []).length > 0) {
+          <h3>{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+
+          <mat-list>
+            @for (resident of (result.data.character.location.residents || []) | slice:0:3; track $index) {
+              <mat-list-item>
+                <img [src]="resident.image" alt="{{ resident.name }}" />
+                <p>{{ resident.name }}</p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            }
+          </mat-list>
+        }
+
+        <div>
+          @if( result.data.character.episode[0].name ) {
+            <p>{{ 'DETAIL.EPISODE' | translate }} {{ result.data.character.episode[0].name}}</p>
+            <p>{{ 'DETAIL.AIR_DATE' | translate }} {{ result.data.character.episode[0].air_date}}</p>
+          } @else {
+            <p>{{ 'DETAIL.NO_EPISODE' | translate }}</p>
+          }
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+}
