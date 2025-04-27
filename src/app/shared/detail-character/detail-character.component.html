@@ -1,0 +1,37 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ character?.name }}</mat-card-title>
+      <mat-card-subtitle>{{ character?.species }} | {{ character?.gender }} | {{ character?.status }}</mat-card-subtitle>
+      <img mat-card-xl-image src="{{ character?.image }}" >
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    @if(character?.origin?.name) {
+      Origen:  {{ character?.origin?.name }}
+      Residentes:
+      @for (item of residentsOrigin; track $index) {
+        {{item.name}},
+      }
+    } @else {
+      <p>Se desconoce el lugar de origen</p>
+    }
+
+    @if(character?.location?.name) {
+      Localizacion: {{ character?.location?.name }},
+      Residentes:
+      @for (item of residentsLocation; track $index) {
+        {{item.name}},
+      }
+    } @else {
+      <p>Se desconoce el lugar de Localizacion</p>
+    }
+
+
+    Episodio:
+    Nombre: {{ (episodes$ | async)?.name }}
+    Fecha de transmision: {{ (episodes$ | async)?.air_date }}
+    Código del episodio: {{ (episodes$ | async)?.episode }}
+
+  </mat-card-content>
+</mat-card>
