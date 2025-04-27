@@ -1,0 +1,27 @@
+<div>
+
+  <div>
+    <p>Totales por Species</p>
+
+    @for (species of (speciesCount | keyvalue); track $index) {
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title> {{ species.key }}</mat-card-title>
+          <mat-card-subtitle>{{ species.value }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    }
+  </div>
+
+  <div>
+    <p>Totales por Type</p>
+    @for (type of (typeCount | keyvalue); track $index) {
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title> {{ type.key }}</mat-card-title>
+          <mat-card-subtitle>{{ type.value }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    }
+  </div>
+</div>
