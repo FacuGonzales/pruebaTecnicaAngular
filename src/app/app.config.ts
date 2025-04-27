@@ -1,10 +1,14 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, inject, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { InMemoryCache } from '@apollo/client/core';
+import { HttpLink } from 'apollo-angular/http';
+import { provideApollo } from 'apollo-angular';
 
 import { routes } from './app.routes';
 
@@ -27,5 +31,11 @@ export const appConfig: ApplicationConfig = {
         }
       }),
     ),
+    provideApollo(() => ({
+      cache: new InMemoryCache(),
+      link: inject(HttpLink).create({
+        uri: 'https://rickandmortyapi.com/graphql',
+      }),
+    })),
   ]
 };
