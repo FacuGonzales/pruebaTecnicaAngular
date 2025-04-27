@@ -2,4 +2,17 @@
   <div class="header-bar--title">
     <p>{{ 'HOME.TITLE' | translate }}</p>
   </div>
+
+  @if(favorites$ | async) {
+    <button mat-fab extended [matMenuTriggerFor]="menu" matBadge="{{(favorites$ | async)?.length}}">
+      <mat-icon>star</mat-icon>
+      {{ 'HOME.FAVORITE' | translate }}
+    </button>
+    <mat-menu #menu="matMenu">
+      @for (favorite of (favorites$ | async); track $index) {
+        <button mat-menu-item (click)="viewDetail(favorite)">{{ favorite.name }}</button>
+      }
+    </mat-menu>
+  }
+
 </div>
