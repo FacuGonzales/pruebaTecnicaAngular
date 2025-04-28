@@ -1,10 +1,9 @@
-<div>
-  <div>
-    <app-input-name-filter (filterName)="sendFilterName.emit($event)"></app-input-name-filter>
-  </div>
+<div class="finders-content">
+    <div class="finders-content__input-name">
+      <app-input-name-filter (filterName)="sendFilterName.emit($event)"></app-input-name-filter>
+    </div>
 
-  <div>
-    <app-input-status-filter (filterStatus)="sendFilterStatus.emit($event)"></app-input-status-filter>
-  </div>
-
+    <div class="finders-content__input-status">
+      <app-input-status-filter (filterStatus)="sendFilterStatus.emit($event)"></app-input-status-filter>
+    </div>
 </div>

@@ -1,0 +1,12 @@
+.finders-content {
+  display: grid;
+  gap: 15px;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px 0;
+  width: 100%;
+
+  &__input-name, &__input-status {
+    width: 100%;
+  }
+}
