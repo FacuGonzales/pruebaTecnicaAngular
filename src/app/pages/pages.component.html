@@ -24,7 +24,7 @@
     </div>
 
   } @else {
-    <app-error-message (backToSearch)=" nameFilter= ''; statusFilter=''; search();"></app-error-message>
+    <app-error-message (backToSearch)=" nameFilter= ''; statusFilter=''; searchCharacters();"></app-error-message>
   }
 
   @if (loader$ | async) {
