@@ -1,27 +1,34 @@
-<div>
-
+<div class="page-content">
   <app-header (viewDetailCharacter)="onViewDetailCharacter($event)"></app-header>
 
-  @if(listado.length) {
+  @if(charactersList.length) {
+    <div class="page-content__view-content">
+      <div class="page-content__view-content--table">
+        <app-table [dataSource]="charactersList"
+                  [totalResults]="totalResults"
+                  (sendFilterName)="filterByName($event)"
+                  (sendFilterStatus)="filterByStatus($event)"
+                  (pageChanged)="onPageChange($event)"
+                  (detailCharacter)="onViewDetailCharacter($event)">
+        </app-table>
+      </div>
 
-    <div>
-      <app-table [dataSource]="listado"
-                 [totalResults]="totalResults"
-                 (sendFilterName)="filterByName($event)"
-                 (sendFilterStatus)="filterByStatus($event)"
-                 (pageChanged)="onPageChange($event)"
-                 (detailCharacter)="onViewDetailCharacter($event)">
-      </app-table>
-    </div>
-
-    <div>
-      @if(characterSelected) {
-
-        <app-detail-character [character]="characterSelected"></app-detail-character>
-      }
+      <div class="page-content__view-content--detail">
+        @if(characterSelected) {
+          <app-detail-character [character]="characterSelected" (closeDetail)="characterSelected = null"></app-detail-character>
+        } @else {
+          <p class="txt">{{ 'DETAIL.SELECT' | translate }}</p>
+        }
+      </div>
     </div>
 
   } @else {
-    <app-error-message></app-error-message>
+    <app-error-message (backToSearch)=" nameFilter= ''; statusFilter=''; search();"></app-error-message>
+  }
+
+  @if (loader$ | async) {
+    <div class="page-content__loader-overlay">
+      <app-loader></app-loader>
+    </div>
   }
 </div>
