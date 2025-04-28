@@ -33,7 +33,7 @@ export class TableComponent  implements OnChanges {
   private translate = inject(TranslateService);
   @Input() dataSource: Character[] = [];
   @Input() totalResults: number = 0;
-
+  @Input() cleanItemSelected: boolean = false;
   @Output() sendFilterName = new EventEmitter();
   @Output() sendFilterStatus = new EventEmitter();
   @Output() pageChanged = new EventEmitter<PageEvent>();
@@ -41,8 +41,8 @@ export class TableComponent  implements OnChanges {
 
   private favoriteStore = inject(FavoriteStore);
 
-  itemSelected!: Character;
-  displayedColumns: string[] = ['favorite', 'name', 'status', 'species', 'created'];
+  itemSelected!: Character | null;
+  displayedColumns: string[] = ['favorite', 'name', 'status', 'species', 'type', 'gender', 'created'];
   dataSourceTable = new MatTableDataSource<Character>([]);
   pageSize: number = 20;
 
@@ -55,6 +55,10 @@ export class TableComponent  implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['dataSource']) {
       this.dataSourceTable.data = this.dataSource;
+    }
+
+    if(changes['cleanItemSelected'] && this.cleanItemSelected) {
+      this.itemSelected = null;
     }
   }
 
