@@ -30,7 +30,8 @@
     "NO_LOCATION": "No se encontraron datos de localizacion",
     "EPISODE": "Episodio:",
     "AIR_DATE": "Fecha de transmisión",
-    "NO_EPISODE": "No se encontraron episodios."
+    "NO_EPISODE": "No se encontraron episodios.",
+    "SELECT": "Seleccione un personaje para ver el detalle."
   },
   "ERROR": {
     "TITLE": "¡Lo sentimos!",
