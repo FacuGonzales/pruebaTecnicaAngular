@@ -57,3 +57,13 @@ table {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+  background: $btn-color !important;
+  color: $black-color !important;
+}
+
+.disabled {
+  background: $disabled-background-color !important;
+  color: $disabled-fonts-color !important;
+}
