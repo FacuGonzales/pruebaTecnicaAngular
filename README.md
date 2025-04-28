@@ -1,27 +1,54 @@
-# PruebaTecnicaAngular
+# Rick&Morty App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+This is a web application developed with Angular that allows you to retrieve a list of Rick & Morty characters.
+The characters are obtained from an API. To populate the initial table, we query the following using the REST API: https://rickandmortyapi.com/api/character
+. This allows us to view the characters and complete a counter, which tallies the results, separating them by category: Species and Type.
+Then, to view the details of each character, we query the following using GRAPHQL: https://rickandmortyapi.com/graphql
+, which performs a simultaneous query to obtain the character's details.
+We can also store favorites, using Redux - ngrx/component-store to manage their state.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Main Features
 
-## Code scaffolding
+* View the character list.
+* Save favorite characters.
+* Filter heroes by name or status.
+* View character details.
+* Integrate with an external API using REST and GRAPHQL to retrieve the character list.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+* Angular 19: Front-end development framework.
+* RxJS: Library for managing asynchronous operations and events.
+* Angular HttpClient: For making HTTP requests to the API.
+* Apollo Angular & Graphql: For making requests with Graphql.
+* Angular Material: As a component library.
+* Redux Ngrx/component-store: As a state management library.
+* Ngx-Translate: As a translation and text-centralizing library.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Prerequisites
 
-## Running unit tests
+Before you begin, make sure you have the following installed:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Node.js (version 18 or higher).
+* npm (Node.js package manager).
+* Angular CLI (optional for fast development).
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Follow these steps to set up the project on your local machine:
 
-## Further help
+1 - Clone the repository:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    git clone https://github.com/FacuGonzales/pruebaTecnicaAngular.
+    cd prueba-tecnica-angular
+
+2 - Install the project dependencies using npm:
+
+    npm install
+
+3 - Once the dependencies are installed, you can start the development server:
+
+    npm start
+
+This will start the application and a new window will automatically open at the url <http://localhost:4200/>.
