@@ -1,18 +1,35 @@
-<div class="header-bar">
-  <div class="header-bar--title">
-    <p>{{ 'HOME.TITLE' | translate }}</p>
-  </div>
+<div class="header">
+  <div class="header__content">
+    <p class="header__content--title">{{ 'HOME.TITLE' | translate }}</p>
 
-  @if(favorites$ | async) {
-    <button mat-fab extended [matMenuTriggerFor]="menu" matBadge="{{(favorites$ | async)?.length}}">
-      <mat-icon>star</mat-icon>
-      {{ 'HOME.FAVORITE' | translate }}
-    </button>
-    <mat-menu #menu="matMenu">
-      @for (favorite of (favorites$ | async); track $index) {
-        <button mat-menu-item (click)="viewDetail(favorite)">{{ favorite.name }}</button>
+    @if(favorites$ | async; as Favorites) {
+      @if(Favorites.length) {
+        <button mat-fab
+                extended
+                [matMenuTriggerFor]="menu"
+                matBadge="{{Favorites?.length}}"
+                [disabled]="!Favorites?.length"
+                [ngClass]="{'disabled': !Favorites?.length}">
+          <mat-icon>star</mat-icon>
+          {{ 'HOME.FAVORITE' | translate }}
+        </button>
+
+        <mat-menu #menu="matMenu">
+          @for (favorite of Favorites; track $index) {
+            <button mat-menu-item (click)="viewDetail(favorite)">{{ favorite.name }}</button>
+          }
+        </mat-menu>
+      } @else {
+        <button mat-fab
+                extended
+                matBadge="{{Favorites?.length}}"
+                [disabled]="true"
+                class="disabled">
+          <mat-icon>star</mat-icon>
+          {{ 'HOME.FAVORITE' | translate }}
+        </button>
       }
-    </mat-menu>
-  }
+    }
+  </div>
 
 </div>
