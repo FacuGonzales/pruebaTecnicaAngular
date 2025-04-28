@@ -31,6 +31,14 @@
     "EPISODE": "Episodio:",
     "AIR_DATE": "Fecha de transmisión",
     "NO_EPISODE": "No se encontraron episodios."
+  },
+  "ERROR": {
+    "TITLE": "¡Lo sentimos!",
+    "MESSAGE": "No encontramos resultados en la busqueda."
+  },
+  "ACCOUNTANTS": {
+    "TITLE": "Contadores:",
+    "SPECIES": "Totales por Species",
+    "TYPE": "Totales por Type"
   }
-
 }
