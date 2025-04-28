@@ -1,4 +1,4 @@
-@import "../../../assets/colors/colors.scss";
+@use "../../../assets/colors/colors.scss" as *;
 
 .content {
   align-items: center;
