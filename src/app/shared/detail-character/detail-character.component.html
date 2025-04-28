@@ -3,56 +3,63 @@
 
     <mat-card class="detail-content__card" appearance="outlined">
 
-      <mat-icon class="icon-close" (click)="closeDetail.emit(true)">close</mat-icon>
+      <mat-icon class="detail-content__card--icon-close" (click)="closeDetail.emit(true)">close</mat-icon>
 
       <mat-card-header class="detail-content__card--header-card">
-        <mat-card-title-group>
-          <mat-card-title class="title">{{ result.data.character.name }}</mat-card-title>
-          <mat-card-subtitle class="subtitle">{{ result.data.character.species }} | {{ result.data.character.gender }} | {{ result.data.character.status }}</mat-card-subtitle>
-          <img class="img" mat-card-xl-image src="{{ result.data.character.image }}" >
-        </mat-card-title-group>
+        <img class="img" mat-card-xl-image src="{{ result.data.character.image }}" alt="Character Image">
       </mat-card-header>
 
+      <mat-card-title-group class="detail-content__card--title-group">
+        <mat-card-title class="title shadow">{{ result.data.character.name }}</mat-card-title>
+        <mat-card-subtitle class="subtitle">{{ result.data.character.species }} | {{ result.data.character.gender }} | {{ result.data.character.status }}</mat-card-subtitle>
+      </mat-card-title-group>
+
       <mat-card-content class="detail-content__card--content-card">
-        <p class="txt">{{ 'DETAIL.ORIGIN' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_ORIGIN' | translate) }}</p>
 
-        @if ((result.data.character.origin.residents || []).length > 0) {
-          <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+        <div class="origin-location-section">
+          <p class="txt">{{ 'DETAIL.ORIGIN' | translate }}
+            {{ result.data.character.origin.name || ('DETAIL.NO_ORIGIN' | translate) }}
+          </p>
 
-          <mat-list class="character-list">
-            @for (resident of (result.data.character.origin.residents || []) | slice:0:3; track $index) {
-              <mat-list-item class="character-item">
-                <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
-                <p class="txt">{{ resident.name }}</p>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            }
-          </mat-list>
-        }
+          @if ((result.data.character.origin.residents || []).length > 0) {
+            <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+            <mat-list class="character-list">
+              @for (resident of (result.data.character.origin.residents || []) | slice:0:3; track $index) {
+                <mat-list-item class="character-item">
+                  <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
+                  <p class="txt">{{ resident.name }}</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              }
+            </mat-list>
+          }
 
-        <p class="txt">{{ 'DETAIL.LOCATION' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_LOCATION' | translate) }}</p>
+          <p class="txt">{{ 'DETAIL.LOCATION' | translate }}
+            {{ result.data.character.location.name || ('DETAIL.NO_LOCATION' | translate) }}
+          </p>
 
-        @if ((result.data.character.origin.residents || []).length > 0) {
-          <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+          @if ((result.data.character.location.residents || []).length > 0) {
+            <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+            <mat-list class="character-list">
+              @for (resident of (result.data.character.location.residents || []) | slice:0:3; track $index) {
+                <mat-list-item class="character-item">
+                  <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
+                  <p class="txt">{{ resident.name }}</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              }
+            </mat-list>
+          }
+        </div>
 
-          <mat-list class="character-list">
-            @for (resident of (result.data.character.location.residents || []) | slice:0:3; track $index) {
-              <mat-list-item class="character-item">
-                <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
-                <p class="txt">{{ resident.name }}</p>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            }
-          </mat-list>
-        }
-
-        @if( result.data.character.episode[0].name ) {
-          <p class="txt">{{ 'DETAIL.EPISODE' | translate }} {{ result.data.character.episode[0].name}}</p>
-          <p class="txt">{{ 'DETAIL.AIR_DATE' | translate }} {{ result.data.character.episode[0].air_date | date}}</p>
-        } @else {
-          <p class="txt">{{ 'DETAIL.NO_EPISODE' | translate }}</p>
-        }
-
+        <div class="episode-section">
+          <p class="txt">{{ 'DETAIL.EPISODE' | translate }}
+            {{ result.data.character.episode[0].name || ('DETAIL.NO_EPISODE' | translate) }}
+          </p>
+          <p class="txt">{{ 'DETAIL.AIR_DATE' | translate }}:
+            {{( result.data.character.episode[0].air_date | date) || ('DETAIL.NO_AIR_DATE' | translate) }}
+          </p>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
