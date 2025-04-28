@@ -10,14 +10,6 @@
     letter-spacing: 2px;
     padding: 20px 0 0;
     text-align: left;
-    text-shadow:
-      -2px -2px 0 $tertiary-color,
-      2px -2px 0 $tertiary-color,
-      -2px 2px 0 $tertiary-color,
-      2px 2px 0 $tertiary-color,
-      0 0 10px $tertiary-color,
-      0 0 20px $tertiary-color,
-      0 0 30px $tertiary-color;
   }
 
   &__species, &__type {
