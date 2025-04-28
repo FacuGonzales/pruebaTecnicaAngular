@@ -1,0 +1,62 @@
+@use "../../../assets/colors/colors.scss" as *;
+
+.icon-close {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.title, .subtitle, .txt {
+  color: $secondary-color;
+  font-family: 'Luckiest Guy', cursive;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-align: left;
+  text-shadow:
+    -2px -2px 0 $tertiary-color,
+    2px -2px 0 $tertiary-color,
+    -2px 2px 0 $tertiary-color,
+    2px 2px 0 $tertiary-color,
+    0 0 10px $tertiary-color,
+    0 0 20px $tertiary-color,
+    0 0 30px $tertiary-color;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+}
+
+
+.txt {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.character-item {
+  padding: 35px;
+}
+
+.avatar-list {
+  width: 10%;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+}
+
+::ng-deep .mat-mdc-list-item-unscoped-content {
+  align-items: center;
+  display: flex;
+  justify-content: start;
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000; // Asegurarte que tape todo
+}

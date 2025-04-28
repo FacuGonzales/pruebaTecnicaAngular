@@ -1,58 +1,65 @@
 @if (characterDetails$ | async; as result) {
-  <div>
-    <mat-card class="example-card" appearance="outlined">
+  <div class="detail-content">
 
-      <mat-card-header>
+    <mat-card class="detail-content__card" appearance="outlined">
+
+      <mat-icon class="icon-close" (click)="closeDetail.emit(true)">close</mat-icon>
+
+      <mat-card-header class="detail-content__card--header-card">
         <mat-card-title-group>
-          <mat-card-title>{{ result.data.character.name }}</mat-card-title>
-          <mat-card-subtitle>{{ result.data.character.species }} | {{ result.data.character.gender }} | {{ result.data.character.status }}</mat-card-subtitle>
-          <img mat-card-xl-image src="{{ result.data.character.image }}" >
+          <mat-card-title class="title">{{ result.data.character.name }}</mat-card-title>
+          <mat-card-subtitle class="subtitle">{{ result.data.character.species }} | {{ result.data.character.gender }} | {{ result.data.character.status }}</mat-card-subtitle>
+          <img class="img" mat-card-xl-image src="{{ result.data.character.image }}" >
         </mat-card-title-group>
       </mat-card-header>
 
-      <mat-card-content>
-        <p>{{ 'DETAIL.ORIGIN' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_ORIGIN' | translate) }}</p>
+      <mat-card-content class="detail-content__card--content-card">
+        <p class="txt">{{ 'DETAIL.ORIGIN' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_ORIGIN' | translate) }}</p>
 
         @if ((result.data.character.origin.residents || []).length > 0) {
-          <h3>{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+          <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
 
-          <mat-list>
+          <mat-list class="character-list">
             @for (resident of (result.data.character.origin.residents || []) | slice:0:3; track $index) {
-              <mat-list-item>
-                <img [src]="resident.image" alt="{{ resident.name }}" />
-                <p>{{ resident.name }}</p>
+              <mat-list-item class="character-item">
+                <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
+                <p class="txt">{{ resident.name }}</p>
               </mat-list-item>
               <mat-divider></mat-divider>
             }
           </mat-list>
         }
 
-        <p>{{ 'DETAIL.LOCATION' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_LOCATION' | translate) }}</p>
+        <p class="txt">{{ 'DETAIL.LOCATION' | translate }} {{ result.data.character.origin.name || ('DETAIL.NO_LOCATION' | translate) }}</p>
 
         @if ((result.data.character.origin.residents || []).length > 0) {
-          <h3>{{ 'DETAIL.RESIDENTS' | translate }}</h3>
+          <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
 
-          <mat-list>
+          <mat-list class="character-list">
             @for (resident of (result.data.character.location.residents || []) | slice:0:3; track $index) {
-              <mat-list-item>
-                <img [src]="resident.image" alt="{{ resident.name }}" />
-                <p>{{ resident.name }}</p>
+              <mat-list-item class="character-item">
+                <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
+                <p class="txt">{{ resident.name }}</p>
               </mat-list-item>
               <mat-divider></mat-divider>
             }
           </mat-list>
         }
 
-        <div>
-          @if( result.data.character.episode[0].name ) {
-            <p>{{ 'DETAIL.EPISODE' | translate }} {{ result.data.character.episode[0].name}}</p>
-            <p>{{ 'DETAIL.AIR_DATE' | translate }} {{ result.data.character.episode[0].air_date}}</p>
-          } @else {
-            <p>{{ 'DETAIL.NO_EPISODE' | translate }}</p>
-          }
-        </div>
+        @if( result.data.character.episode[0].name ) {
+          <p class="txt">{{ 'DETAIL.EPISODE' | translate }} {{ result.data.character.episode[0].name}}</p>
+          <p class="txt">{{ 'DETAIL.AIR_DATE' | translate }} {{ result.data.character.episode[0].air_date | date}}</p>
+        } @else {
+          <p class="txt">{{ 'DETAIL.NO_EPISODE' | translate }}</p>
+        }
 
       </mat-card-content>
     </mat-card>
+  </div>
+}
+
+@if (loader$ | async) {
+  <div class="loader-overlay">
+    <app-loader></app-loader>
   </div>
 }
