@@ -2,6 +2,7 @@
   <mat-label>{{ 'FILTERS.NAME_LABEL' | translate }}</mat-label>
   <input type="text"
         matInput
+        appTextUppercaseTransform
         [formControl]="name"
         placeholder="{{ 'FILTERS.NAME_PLACEHOLDER' | translate }}">
 </mat-form-field>

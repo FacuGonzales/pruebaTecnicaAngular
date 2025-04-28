@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TextUppercaseTransformDirective } from '../../directives/text-uppercase-transform.directive';
 
 @Component({
   selector: 'app-input-name-filter',
@@ -13,7 +16,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     ReactiveFormsModule,
     TranslateModule,
     MatInputModule,
-    MatFormFieldModule,],
+    MatFormFieldModule,
+    TextUppercaseTransformDirective],
   templateUrl: './input-name-filter.component.html',
   styleUrl: './input-name-filter.component.scss'
 })
