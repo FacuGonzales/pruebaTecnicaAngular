@@ -1,3 +1,5 @@
+@use "../../../assets/colors/colors.scss" as *;
+
 ::ng-deep .mat-mdc-table .mdc-data-table__table .cdk-table {
   border-radius: 20px !important;
 }
@@ -8,15 +10,24 @@
 
 ::ng-deep .mat-mdc-row:hover, .mdc-data-table__row:hover, .cdk-row:hover {
 
-  cursor: pointer;
+cursor: pointer;
   transition: .3s;
 }
 
-.table-container {
-  width: 40%;
+.table-table-content {
+  width: 100%;
 }
 
 .example-container {
-  height: 670px;
+  height: 525px;
   overflow: auto;
+}
+
+.favorite {
+  color: $yellow-color;
+}
+
+.selected-row {
+  background-color: $primary-color;
+  transition: background-color 0.3s ease;
 }

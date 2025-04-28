@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -21,6 +22,7 @@ import { AccountantsComponent } from '../accountants/accountants.component';
     MatTableModule,
     MatPaginatorModule,
     MatCheckboxModule,
+    MatIconModule,
     FindersComponent,
     AccountantsComponent
   ],
@@ -39,6 +41,7 @@ export class TableComponent  implements OnChanges {
 
   private favoriteStore = inject(FavoriteStore);
 
+  itemSelected!: Character;
   displayedColumns: string[] = ['favorite', 'name', 'status', 'species', 'created'];
   dataSourceTable = new MatTableDataSource<Character>([]);
   pageSize: number = 20;
@@ -60,6 +63,7 @@ export class TableComponent  implements OnChanges {
   }
 
   viewItem(character: Character): void {
+    this.itemSelected = character;
     this.detailCharacter.emit(character);
   }
 
