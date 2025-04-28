@@ -16,10 +16,14 @@
   },
   "TABLE": {
     "COLUMNS": {
+      "FAVORITE": "Fav",
       "NAME": "Nombre",
       "STATUS": "Estado",
       "SPECIES": "Especie",
-      "CREATED": "Fecha de Creacion"
+      "CREATED": "Creación",
+      "TYPE": "Tipo",
+      "GENDER": "Genero",
+      "NO_DATA": "S/D"
     }
   },
   "DETAIL": {
