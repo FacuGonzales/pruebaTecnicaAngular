@@ -1,19 +1,28 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
-import { Character } from '../../models/character-model';
+import { Component, inject, Input, SimpleChanges } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
+import { Character } from '../../models/character-model';
+
 @Component({
   selector: 'app-accountants',
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, TranslateModule, MatCardModule],
   templateUrl: './accountants.component.html',
   styleUrl: './accountants.component.scss'
 })
 export class AccountantsComponent {
   @Input() characters: Character[] = [];
+  private translate = inject(TranslateService);
 
-  speciesCount: Record<string, number> = {}; // Para contar por species
-  typeCount: Record<string, number> = {}; // Para contar por type
+  constructor() {
+    this.translate.setDefaultLang('es');
+    this.translate.use('es');
+  }
+
+  speciesCount: Record<string, number> = {};
+  typeCount: Record<string, number> = {};
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['characters']) {
@@ -22,17 +31,14 @@ export class AccountantsComponent {
   }
 
   loadSpeciesAndTypeCounts(): void {
-    // Reseteamos los contadores
     this.speciesCount = {};
     this.typeCount = {};
 
     this.characters.forEach(character => {
-      // Contamos por species
       if (character.species) {
         this.speciesCount[character.species] = (this.speciesCount[character.species] || 0) + 1;
       }
 
-      // Contamos por type (si es que tiene tipo)
       if (character.type) {
         this.typeCount[character.type] = (this.typeCount[character.type] || 0) + 1;
       }

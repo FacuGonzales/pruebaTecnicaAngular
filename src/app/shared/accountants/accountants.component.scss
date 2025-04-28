@@ -1,0 +1,52 @@
+@use "../../../assets/colors/colors.scss" as *;
+
+.accountants-content {
+  width: 100%;
+
+  &__title {
+    color: $secondary-color;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    padding: 20px 0 0;
+    text-align: left;
+    text-shadow:
+      -2px -2px 0 $tertiary-color,
+      2px -2px 0 $tertiary-color,
+      -2px 2px 0 $tertiary-color,
+      2px 2px 0 $tertiary-color,
+      0 0 10px $tertiary-color,
+      0 0 20px $tertiary-color,
+      0 0 30px $tertiary-color;
+  }
+
+  &__species, &__type {
+    &--subtitle {
+      border-bottom: 1px solid;
+      color: $secondary-color;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      padding: 20px 0 10px;
+      text-align: left;
+    }
+  }
+
+  &__species--accountants, &__type--accountants {
+    display: grid;
+      gap: 15px;
+      grid-auto-rows: auto;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 auto;
+  }
+
+  .accountants-card {
+    background-color: $primary-color;
+    font-family: 'Luckiest Guy', cursive !important;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 10px;
+
+  }
+}
