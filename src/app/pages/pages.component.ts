@@ -36,6 +36,7 @@ export class PagesComponent {
   totalResults = 0;
   charactersList: Character[] = [];
   characterSelected: Character | null = null;
+  cleanCharacterSelected!: boolean;
   private destroy$: Subject<any> = new Subject<void>();
   private translate = inject(TranslateService);
   private nameFilterSubject = new Subject<string>();

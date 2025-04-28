@@ -1,11 +1,12 @@
 <div class="page-content">
-  <app-header (viewDetailCharacter)="onViewDetailCharacter($event)"></app-header>
+  <app-header (viewDetailCharacter)="cleanCharacterSelected = true; onViewDetailCharacter($event)"></app-header>
 
   @if(charactersList.length) {
     <div class="page-content__view-content">
       <div class="page-content__view-content--table">
         <app-table [dataSource]="charactersList"
                   [totalResults]="totalResults"
+                  [cleanItemSelected]="cleanCharacterSelected"
                   (sendFilterName)="filterByName($event)"
                   (sendFilterStatus)="filterByStatus($event)"
                   (pageChanged)="onPageChange($event)"
@@ -15,7 +16,7 @@
 
       <div class="page-content__view-content--detail">
         @if(characterSelected) {
-          <app-detail-character [character]="characterSelected" (closeDetail)="characterSelected = null"></app-detail-character>
+          <app-detail-character [character]="characterSelected" (closeDetail)="characterSelected = null;"></app-detail-character>
         } @else {
           <p class="txt">{{ 'DETAIL.SELECT' | translate }}</p>
         }
@@ -27,7 +28,7 @@
   }
 
   @if (loader$ | async) {
-    <div class="page-content__loader-overlay">
+    <div class="loader-overlay">
       <app-loader></app-loader>
     </div>
   }
