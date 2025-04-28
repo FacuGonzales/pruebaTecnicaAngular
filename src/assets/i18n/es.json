@@ -34,7 +34,8 @@
   },
   "ERROR": {
     "TITLE": "¡Lo sentimos!",
-    "MESSAGE": "No encontramos resultados en la busqueda."
+    "MESSAGE": "No encontramos resultados en la busqueda.",
+    "BACK": "Volver a la búsqueda"
   },
   "ACCOUNTANTS": {
     "TITLE": "Contadores:",
