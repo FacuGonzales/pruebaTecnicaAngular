@@ -1,6 +1,7 @@
 {
   "HOME" : {
-    "TITLE": "Rick & Morty"
+    "TITLE": "Rick & Morty",
+    "FAVORITE": "Mis Favoritos"
   },
   "FILTERS" : {
     "NAME_LABEL": "Ingresar nombre",
@@ -20,6 +21,16 @@
       "SPECIES": "Especie",
       "CREATED": "Fecha de Creacion"
     }
+  },
+  "DETAIL": {
+    "ORIGIN": "Origen:",
+    "LOCATION": "Localizacion:",
+    "RESIDENTS": "Residentes:",
+    "NO_ORIGIN": "No se encontraron datos de origen",
+    "NO_LOCATION": "No se encontraron datos de localizacion",
+    "EPISODE": "Episodio:",
+    "AIR_DATE": "Fecha de transmisión",
+    "NO_EPISODE": "No se encontraron episodios."
   }
 
 }
