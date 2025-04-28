@@ -33,20 +33,10 @@
     }
   }
 
-  &__species--accountants, &__type--accountants {
+  &__species--cards, &__type--cards {
     display: grid;
-      gap: 15px;
-      grid-auto-rows: auto;
-      grid-template-columns: repeat(3, 1fr);
-      margin: 0 auto;
-  }
-
-  .accountants-card {
-    background-color: $primary-color;
-    font-family: 'Luckiest Guy', cursive !important;
-    font-size: 1rem;
-    letter-spacing: 2px;
-    padding: 10px;
-
+    gap: 15px;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(5, 1fr);
   }
 }

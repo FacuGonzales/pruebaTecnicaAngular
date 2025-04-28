@@ -1,32 +1,23 @@
 <div class="accountants-content">
-
   <p class="accountants-content__title">{{ 'ACCOUNTANTS.TITLE' | translate }}</p>
 
   <div class="accountants-content__species">
     <p class="accountants-content__species--subtitle">{{ 'ACCOUNTANTS.SPECIES' | translate }}</p>
 
-    <div class="accountants-content__species--accountants">
+    <div class="accountants-content__species--cards">
       @for (species of (speciesCount | keyvalue); track $index) {
-        <mat-card class="accountants-card" appearance="outlined">
-          <mat-card-header class="accountants-card__header">
-            <mat-card-title> {{ species.key }}</mat-card-title>
-            <mat-card-subtitle>{{ species.value }}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
+        <app-counter [data]="species"></app-counter>
       }
     </div>
+
   </div>
 
   <div class="accountants-content__type">
     <p class="accountants-content__type--subtitle">{{ 'ACCOUNTANTS.TYPE' | translate }}</p>
-    <div class="accountants-content__type--accountants">
+
+    <div class="accountants-content__type--cards">
       @for (type of (typeCount | keyvalue); track $index) {
-        <mat-card class="accountants-card" appearance="outlined">
-          <mat-card-header class="accountants-card__header">
-            <mat-card-title> {{ type.key }}</mat-card-title>
-            <mat-card-subtitle>{{ type.value }}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
+        <app-counter [data]="type"></app-counter>
       }
     </div>
   </div>

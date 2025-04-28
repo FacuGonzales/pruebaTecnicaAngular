@@ -5,24 +5,24 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
 import { Character } from '../../models/character-model';
+import { CounterComponent } from '../counter/counter.component';
 
 @Component({
   selector: 'app-accountants',
-  imports: [CommonModule, TranslateModule, MatCardModule],
+  imports: [CommonModule, TranslateModule, MatCardModule, CounterComponent],
   templateUrl: './accountants.component.html',
   styleUrl: './accountants.component.scss'
 })
 export class AccountantsComponent {
   @Input() characters: Character[] = [];
   private translate = inject(TranslateService);
+  speciesCount: Record<string, number> = {};
+  typeCount: Record<string, number> = {};
 
   constructor() {
     this.translate.setDefaultLang('es');
     this.translate.use('es');
   }
-
-  speciesCount: Record<string, number> = {};
-  typeCount: Record<string, number> = {};
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['characters']) {
