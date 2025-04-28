@@ -15,6 +15,18 @@
     margin: 0 auto;
     width: 80%;
 
+    &--back-content {
+      display: flex;
+      cursor: pointer;
+      justify-content: left;
+      align-items: center;
+      color: $secondary-color;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      padding: 150px 0;
+    }
+
     &--title, &--message {
       color: $secondary-color;
       font-family: 'Luckiest Guy', cursive;
@@ -32,7 +44,6 @@
     &--title {
       font-size: 5rem;
       letter-spacing: 2px;
-      padding: 230px 0 0;
     }
 
     &--message {
