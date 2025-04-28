@@ -1,0 +1,63 @@
+
+@use "../../../assets/colors/colors.scss" as *;
+
+.counter-card {
+  align-items: center;
+  background: $tertiary-color;
+  border: 1px solid $primary-color;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px $disabled-fonts-color;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Courier New', Courier, monospace;
+  height: 165px;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 1rem 0.5rem;
+  width: 130px;
+
+  &__counter-display {
+    height: 100px;
+    position: relative;
+    width: 80px;
+
+    &--counter-number {
+      color: $black-color;
+      font-size: 3rem;
+      font-weight: bold;
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    &--counter-top, &--counter-bottom {
+      background: $primary-color;
+      position: absolute;
+      height: 50%;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &--counter-top {
+      border-bottom: 1px solid $disabled-background-color;
+      top: 0;
+    }
+
+    &--counter-bottom {
+      border-top: 1px solid $disabled-background-color;
+      bottom: 0;
+    }
+  }
+
+  &__counter-label {
+    color: $error-background-color;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
