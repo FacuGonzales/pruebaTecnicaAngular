@@ -16,13 +16,13 @@
     width: 80%;
 
     &--back-content {
-      display: flex;
-      cursor: pointer;
-      justify-content: left;
       align-items: center;
       color: $secondary-color;
+      cursor: pointer;
+      display: flex;
       font-family: 'Luckiest Guy', cursive;
       font-size: 1rem;
+      justify-content: left;
       letter-spacing: 2px;
       padding: 150px 0;
     }
@@ -31,14 +31,6 @@
       color: $secondary-color;
       font-family: 'Luckiest Guy', cursive;
       text-align: left;
-      text-shadow:
-        -2px -2px 0 $tertiary-color,
-        2px -2px 0 $tertiary-color,
-        -2px 2px 0 $tertiary-color,
-        2px 2px 0 $tertiary-color,
-        0 0 10px $tertiary-color,
-        0 0 20px $tertiary-color,
-        0 0 30px $tertiary-color;
     }
 
     &--title {
@@ -51,7 +43,5 @@
       letter-spacing: 2px;
       padding: 40px 0;
     }
-
   }
-
 }

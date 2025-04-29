@@ -1,6 +1,6 @@
 <div class="header">
   <div class="header__content">
-    <p class="header__content--title">{{ 'HOME.TITLE' | translate }}</p>
+    <p class="header__content--title shadow">{{ 'HOME.TITLE' | translate }}</p>
 
     @if(favorites$ | async; as Favorites) {
       @if(Favorites.length) {
@@ -31,5 +31,4 @@
       }
     }
   </div>
-
 </div>
