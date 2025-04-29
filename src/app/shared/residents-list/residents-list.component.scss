@@ -1,0 +1,25 @@
+@use "../../../assets/colors/colors.scss" as *;
+
+.txt {
+  color: $secondary-color;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  padding: 10px 0;
+}
+
+.character-item {
+  padding: 10px 0;
+}
+
+.avatar-list {
+  width: 10%;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+}
+
+::ng-deep .mat-mdc-list-item-unscoped-content {
+  align-items: center;
+  display: flex;
+  justify-content: start;
+}
