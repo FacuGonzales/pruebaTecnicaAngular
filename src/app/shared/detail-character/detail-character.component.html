@@ -21,26 +21,30 @@
             {{ result.data.character.origin.name || ('DETAIL.NO_ORIGIN' | translate) }}
           </p>
 
-          @if ((result.data.character.origin.residents || []).length > 0) {
+          @if (result.data.character.origin.residents.length > 0) {
             <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
             <mat-list class="character-list">
               @for (resident of (result.data.character.origin.residents || []) | slice:0:3; track $index) {
                 <app-residents-list [resident]="resident"></app-residents-list>
               }
             </mat-list>
+          } @else {
+            <p class="txt">{{ 'DETAIL.NO_RESIDENTS_ORIGIN' | translate }}</p>
           }
 
           <p class="txt">{{ 'DETAIL.LOCATION' | translate }}
             {{ result.data.character.location.name || ('DETAIL.NO_LOCATION' | translate) }}
           </p>
 
-          @if ((result.data.character.location.residents || []).length > 0) {
+          @if (result.data.character.location.residents.length > 0) {
             <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
             <mat-list class="character-list">
               @for (resident of (result.data.character.location.residents || []) | slice:0:3; track $index) {
                 <app-residents-list [resident]="resident"></app-residents-list>
               }
             </mat-list>
+          } @else {
+            <p class="txt">{{ 'DETAIL.NO_RESIDENTS_LOCATION' | translate }}</p>
           }
         </div>
 

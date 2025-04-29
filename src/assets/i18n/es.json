@@ -35,7 +35,9 @@
     "EPISODE": "Episodio:",
     "AIR_DATE": "Fecha de transmisión",
     "NO_EPISODE": "No se encontraron episodios.",
-    "SELECT": "Seleccione un personaje para ver el detalle."
+    "SELECT": "Seleccione un personaje para ver el detalle.",
+    "NO_RESIDENTS_ORIGIN": "No posee residentes en su origen.",
+    "NO_RESIDENTS_LOCATION": "No posee residentes en su localizacion."
   },
   "ERROR": {
     "TITLE": "¡Lo sentimos!",
