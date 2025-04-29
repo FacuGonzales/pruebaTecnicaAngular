@@ -57,18 +57,3 @@
   font-size: 2rem;
   cursor: pointer;
 }
-
-.character-item {
-  padding: 35px;
-}
-.avatar-list {
-  width: 10%;
-  border-radius: 50%;
-  margin: 0 15px 0 0;
-}
-
-::ng-deep .mat-mdc-list-item-unscoped-content {
-  align-items: center;
-  display: flex;
-  justify-content: start;
-}

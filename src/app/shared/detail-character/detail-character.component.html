@@ -25,11 +25,7 @@
             <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
             <mat-list class="character-list">
               @for (resident of (result.data.character.origin.residents || []) | slice:0:3; track $index) {
-                <mat-list-item class="character-item">
-                  <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
-                  <p class="txt">{{ resident.name }}</p>
-                </mat-list-item>
-                <mat-divider></mat-divider>
+                <app-residents-list [resident]="resident"></app-residents-list>
               }
             </mat-list>
           }
@@ -42,11 +38,7 @@
             <h3 class="txt">{{ 'DETAIL.RESIDENTS' | translate }}</h3>
             <mat-list class="character-list">
               @for (resident of (result.data.character.location.residents || []) | slice:0:3; track $index) {
-                <mat-list-item class="character-item">
-                  <img class="avatar-list" [src]="resident.image" alt="{{ resident.name }}" />
-                  <p class="txt">{{ resident.name }}</p>
-                </mat-list-item>
-                <mat-divider></mat-divider>
+                <app-residents-list [resident]="resident"></app-residents-list>
               }
             </mat-list>
           }

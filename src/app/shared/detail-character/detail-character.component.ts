@@ -15,10 +15,20 @@ import { CharacterDetails } from '../../models/character-detail-model';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadingService } from '../../services/loading.service';
 import { LoaderComponent } from '../loader/loader.component';
+import { ResidentsListComponent } from '../residents-list/residents-list.component';
 
 @Component({
   selector: 'app-detail-character',
-  imports: [CommonModule, TranslateModule, MatCardModule, MatListModule, MatDividerModule, MatIconModule, LoaderComponent],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    MatCardModule,
+    MatListModule,
+    MatDividerModule,
+    MatIconModule,
+    LoaderComponent,
+    ResidentsListComponent
+  ],
   templateUrl: './detail-character.component.html',
   styleUrl: './detail-character.component.scss'
 })
